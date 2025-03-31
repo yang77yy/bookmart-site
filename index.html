@@ -7,554 +7,10 @@
     <meta name="keywords" content="网站导航,搜索引擎,社交媒体,视频平台,音乐平台,实用工具,设计资源,AI工具,教育资源">
     <meta name="author" content="Lighthouse Hair">
     <meta name="robots" content="index, follow">
-    <link rel="icon" type="image/png" href="https://cdn.lighthouse.hair/favicon.png">
-    <link rel="apple-touch-icon" href="https://cdn.lighthouse.hair/apple-touch-icon.png">
-    <link rel="manifest" href="https://cdn.lighthouse.hair/manifest.json">
     <title>Lighthouse Hair - 网站导航</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        :root {
-            --primary-color: #4f46e5;
-            --secondary-color: #818cf8;
-            --accent-color: #6366f1;
-            --background-color: #f8fafc;
-            --text-color: #1e293b;
-            --card-bg: #ffffff;
-            --tag-bg: #f1f5f9;
-            --gradient-1: linear-gradient(135deg, #4f46e5 0%, #818cf8 100%);
-            --gradient-2: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-            --gradient-3: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans SC', sans-serif;
-            background: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .header {
-            text-align: center;
-            padding: 120px 0;
-            background: var(--gradient-1);
-            color: white;
-            margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
-            opacity: 0.1;
-            animation: backgroundMove 20s linear infinite;
-        }
-
-        @keyframes backgroundMove {
-            from { background-position: 0 0; }
-            to { background-position: 100% 100%; }
-        }
-
-        .header h1 {
-            font-size: 4.5em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            position: relative;
-            background: linear-gradient(to right, #fff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 2px;
-            animation: fadeInUp 1s ease;
-        }
-
-        .header p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
-
-        .quick-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-            padding: 0 20px;
-            animation: fadeInUp 1s ease 0.3s backwards;
-        }
-
-        .quick-link {
-            background: rgba(255,255,255,0.15);
-            padding: 12px 24px;
-            border-radius: 25px;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
-            font-weight: 500;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .quick-link span {
-            font-size: 1.2em;
-        }
-
-        .quick-link:hover {
-            background: rgba(255,255,255,0.25);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .search-box {
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 30px;
-            background: rgba(255,255,255,0.15);
-            color: white;
-            font-size: 1.1em;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .search-box input::placeholder {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .search-box input:focus {
-            outline: none;
-            background: rgba(255,255,255,0.25);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .category {
-            margin-bottom: 60px;
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 1s ease backwards;
-        }
-
-        .category:nth-child(1) { animation-delay: 0.5s; }
-        .category:nth-child(2) { animation-delay: 0.6s; }
-        .category:nth-child(3) { animation-delay: 0.7s; }
-        .category:nth-child(4) { animation-delay: 0.8s; }
-        .category:nth-child(5) { animation-delay: 0.9s; }
-        .category:nth-child(6) { animation-delay: 1s; }
-        .category:nth-child(7) { animation-delay: 1.1s; }
-        .category:nth-child(8) { animation-delay: 1.2s; }
-        .category:nth-child(9) { animation-delay: 1.3s; }
-
-        .category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-1);
-        }
-
-        .category h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            color: var(--text-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .category-count {
-            font-size: 0.5em;
-            background: var(--gradient-1);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-weight: normal;
-        }
-
-        .sites-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .site-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            transform-origin: center;
-        }
-
-        .site-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border-color: var(--primary-color);
-        }
-
-        .site-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-1);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 0;
-        }
-
-        .site-card:hover::before {
-            opacity: 0.05;
-        }
-
-        .site-card > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .site-card h3 {
-            color: var(--text-color);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            font-size: 1.4em;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .site-card h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--gradient-1);
-            transition: width 0.3s ease;
-        }
-
-        .site-card:hover h3::after {
-            width: 60px;
-        }
-
-        .site-card p {
-            color: #64748b;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .site-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .site-tag {
-            font-size: 0.85em;
-            padding: 6px 12px;
-            background: var(--tag-bg);
-            border-radius: 12px;
-            color: #475569;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .site-card:hover .site-tag {
-            background: var(--gradient-1);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 40px 0;
-            background: var(--gradient-1);
-            color: white;
-            margin-top: 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
-            opacity: 0.1;
-        }
-
-        .footer p {
-            margin-bottom: 10px;
-            opacity: 0.9;
-        }
-
-        .footer a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        .footer a:hover {
-            opacity: 1;
-        }
-
-        /* 夜间模式样式 */
-        [data-theme="dark"] {
-            --background-color: #1a1a1a;
-            --text-color: #e0e0e0;
-            --card-bg: #2d2d2d;
-            --tag-bg: #3d3d3d;
-        }
-
-        /* 返回顶部按钮 */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--gradient-1);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        /* 主题切换按钮 */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--gradient-1);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
-
-        /* 收藏按钮 */
-        .favorite-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-            opacity: 0.5;
-            transition: all 0.3s ease;
-            z-index: 2;
-        }
-
-        .favorite-btn.active {
-            opacity: 1;
-            color: #ffd700;
-        }
-
-        /* 访问统计 */
-        .visit-count {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: var(--gradient-1);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
-
-        /* 加载动画 */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--background-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-        }
-
-        .loading::after {
-            content: '';
-            width: 50px;
-            height: 50px;
-            border: 3px solid var(--primary-color);
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* 搜索优化 */
-        .search-results {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: var(--card-bg);
-            border-radius: 15px;
-            margin-top: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            max-height: 300px;
-            overflow-y: auto;
-            display: none;
-        }
-
-        .search-results.visible {
-            display: block;
-        }
-
-        .search-result-item {
-            padding: 15px 20px;
-            border-bottom: 1px solid #e2e8f0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .search-result-item:hover {
-            background: var(--tag-bg);
-        }
-
-        .search-result-item:last-child {
-            border-bottom: none;
-        }
-
-        .search-result-title {
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-
-        .search-result-description {
-            font-size: 0.9em;
-            color: #64748b;
-        }
-
-        /* 移动端优化 */
-        @media (max-width: 768px) {
-            .header {
-                padding: 80px 0;
-            }
-
-            .header h1 {
-                font-size: 3em;
-            }
-
-            .quick-links {
-                gap: 8px;
-            }
-
-            .quick-link {
-                padding: 8px 16px;
-                font-size: 0.9em;
-            }
-
-            .site-card {
-                padding: 20px;
-            }
-
-            .site-card h3 {
-                font-size: 1.2em;
-            }
-
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .theme-toggle {
-                top: 10px;
-                right: 10px;
-            }
-
-            .visit-count {
-                bottom: 10px;
-                left: 10px;
-                font-size: 0.8em;
-            }
-        }
+        // ... existing styles ...
     </style>
 </head>
 <body>
@@ -564,48 +20,160 @@
     <!-- 主题切换按钮 -->
     <button class="theme-toggle" id="themeToggle">🌓</button>
 
-    <div class="header">
-        <div class="container">
-            <h1>Lighthouse Hair</h1>
-            <p>发现优质网站，探索互联网世界</p>
-            <div class="quick-links">
-                <a href="#search" class="quick-link"><span>🔍</span>搜索引擎</a>
-                <a href="#social" class="quick-link"><span>👥</span>社交媒体</a>
-                <a href="#video" class="quick-link"><span>🎥</span>视频平台</a>
-                <a href="#music" class="quick-link"><span>🎵</span>音乐平台</a>
-                <a href="#tools" class="quick-link"><span>🛠️</span>实用工具</a>
-                <a href="#design" class="quick-link"><span>🎨</span>设计资源</a>
-                <a href="#ai" class="quick-link"><span>🤖</span>AI工具</a>
-                <a href="#education" class="quick-link"><span>📚</span>教育资源</a>
-                <a href="#news" class="quick-link"><span>📰</span>新闻资讯</a>
-                <a href="#shopping" class="quick-link"><span>🛍️</span>购物平台</a>
-            </div>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="搜索网站...">
-                <div class="search-results" id="searchResults"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        // ... existing categories ...
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p>© 2024 Lighthouse Hair. All rights reserved.</p>
-            <p>联系我们：<a href="mailto:contact@lighthouse.hair">contact@lighthouse.hair</a></p>
-        </div>
-    </footer>
-
-    <!-- 返回顶部按钮 -->
-    <div class="back-to-top" id="backToTop">↑</div>
-
-    <!-- 访问统计 -->
-    <div class="visit-count" id="visitCount"></div>
+    // ... existing header and content ...
 
     <script>
-        // ... existing code ...
+        // 页面加载完成后隐藏加载动画
+        window.addEventListener('load', () => {
+            document.querySelector('.loading').style.display = 'none';
+        });
+
+        // 主题切换
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        // 检查本地存储中的主题设置
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+            themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌓';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌓';
+        });
+
+        // 返回顶部按钮
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 搜索功能
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        const siteCards = document.querySelectorAll('.site-card');
+        let searchTimeout;
+
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            // 清除之前的定时器
+            clearTimeout(searchTimeout);
+            
+            // 设置新的定时器，避免频繁搜索
+            searchTimeout = setTimeout(() => {
+                const results = [];
+                
+                siteCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent;
+                    const description = card.querySelector('p').textContent;
+                    const tags = Array.from(card.querySelectorAll('.site-tag')).map(tag => tag.textContent);
+                    
+                    if (title.toLowerCase().includes(searchTerm) || 
+                        description.toLowerCase().includes(searchTerm) || 
+                        tags.some(tag => tag.toLowerCase().includes(searchTerm))) {
+                        results.push({
+                            title,
+                            description,
+                            url: card.href
+                        });
+                    }
+                });
+
+                // 显示搜索结果
+                if (results.length > 0 && searchTerm) {
+                    searchResults.innerHTML = results.map(result => `
+                        <div class="search-result-item" data-url="${result.url}">
+                            <div class="search-result-title">${result.title}</div>
+                            <div class="search-result-description">${result.description}</div>
+                        </div>
+                    `).join('');
+                    searchResults.classList.add('visible');
+                } else {
+                    searchResults.classList.remove('visible');
+                }
+            }, 300);
+        });
+
+        // 点击搜索结果跳转
+        searchResults.addEventListener('click', (e) => {
+            const resultItem = e.target.closest('.search-result-item');
+            if (resultItem) {
+                const url = resultItem.dataset.url;
+                window.open(url, '_blank');
+                searchInput.value = '';
+                searchResults.classList.remove('visible');
+            }
+        });
+
+        // 点击其他地方关闭搜索结果
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.remove('visible');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 收藏功能
+        const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+        
+        siteCards.forEach(card => {
+            const url = card.href;
+            const favoriteBtn = document.createElement('button');
+            favoriteBtn.className = `favorite-btn ${favorites.includes(url) ? 'active' : ''}`;
+            favoriteBtn.innerHTML = '⭐';
+            favoriteBtn.title = '收藏网站';
+            card.appendChild(favoriteBtn);
+
+            favoriteBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const index = favorites.indexOf(url);
+                if (index === -1) {
+                    favorites.push(url);
+                } else {
+                    favorites.splice(index, 1);
+                }
+                
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+                favoriteBtn.classList.toggle('active');
+            });
+        });
+
+        // 网站访问统计
+        const visitCount = localStorage.getItem('visitCount') || 0;
+        localStorage.setItem('visitCount', parseInt(visitCount) + 1);
+        
+        // 显示访问次数
+        document.getElementById('visitCount').textContent = `访问次数：${parseInt(visitCount) + 1}`;
     </script>
 </body>
 </html>
