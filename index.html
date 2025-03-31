@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lighthouse Hair - 发现优质网站，探索互联网世界。提供搜索引擎、社交媒体、视频平台、音乐平台等分类导航。">
     <meta name="keywords" content="网站导航,搜索引擎,社交媒体,视频平台,音乐平台,实用工具,设计资源,AI工具,教育资源">
-    <title>Lighthouse Hair - 网站导航</title>
+    <meta name="author" content="Lighthouse Hair">
+    <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" href="https://cdn.lighthouse.hair/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-    // ... existing code ...
-
-    <style>
+    <link rel="apple-touch-icon" href="https://cdn.lighthouse.hair/apple-touch-icon.png">
+    <link rel="manifest" href="https://cdn.lighthouse.hair/manifest.json">
+    <title>Lighthouse Hair - 网站导航</title>
+    // ... existing code ...    <style>
         // ... existing code ...
 
         /* 夜间模式样式 */
@@ -68,71 +69,8 @@
             z-index: 1000;
         }
 
-        /* 收藏按钮 */
-        .favorite-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-            opacity: 0.5;
-            transition: all 0.3s ease;
-        }
-
-        .favorite-btn.active {
-            opacity: 1;
-            color: #ffd700;
-        }
-
-        /* 加载动画 */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--background-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-        }
-
-        .loading::after {
-            content: '';
-            width: 50px;
-            height: 50px;
-            border: 3px solid var(--primary-color);
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
         /* 移动端优化 */
         @media (max-width: 768px) {
-            .quick-links {
-                gap: 8px;
-            }
-
-            .quick-link {
-                padding: 8px 16px;
-                font-size: 0.9em;
-            }
-
-            .site-card {
-                padding: 20px;
-            }
-
-            .site-card h3 {
-                font-size: 1.2em;
-            }
-
             .back-to-top {
                 bottom: 20px;
                 right: 20px;
@@ -146,9 +84,6 @@
     </style>
 </head>
 <body>
-    <!-- 加载动画 -->
-    <div class="loading"></div>
-
     <!-- 主题切换按钮 -->
     <button class="theme-toggle" id="themeToggle">🌓</button>
 
@@ -158,11 +93,6 @@
     <div class="back-to-top" id="backToTop">↑</div>
 
     <script>
-        // 页面加载完成后隐藏加载动画
-        window.addEventListener('load', () => {
-            document.querySelector('.loading').style.display = 'none';
-        });
-
         // 主题切换
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
@@ -201,6 +131,60 @@
             });
         });
 
+        // ... existing code ...    <style>
+        // ... existing code ...
+
+        /* 收藏按钮 */
+        .favorite-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .favorite-btn.active {
+            opacity: 1;
+            color: #ffd700;
+        }
+
+        /* 访问统计 */
+        .visit-count {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--gradient-1);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .visit-count {
+                bottom: 10px;
+                left: 10px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    // ... existing code ...
+
+    <!-- 访问统计 -->
+    <div class="visit-count" id="visitCount"></div>
+
+    <script>
+        // ... existing code ...
+
         // 收藏功能
         const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
         
@@ -228,37 +212,12 @@
             });
         });
 
-        // 搜索功能优化（支持拼音）
-        const pinyin = require('pinyin');
-        
-        searchInput.addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            
-            siteCards.forEach(card => {
-                const title = card.querySelector('h3').textContent;
-                const description = card.querySelector('p').textContent;
-                const tags = Array.from(card.querySelectorAll('.site-tag')).map(tag => tag.textContent);
-                
-                const titlePinyin = pinyin(title, { style: pinyin.STYLE_NORMAL }).flat().join('');
-                const descriptionPinyin = pinyin(description, { style: pinyin.STYLE_NORMAL }).flat().join('');
-                const tagsPinyin = tags.map(tag => pinyin(tag, { style: pinyin.STYLE_NORMAL }).flat().join(''));
-                
-                if (title.toLowerCase().includes(searchTerm) || 
-                    description.toLowerCase().includes(searchTerm) || 
-                    tags.some(tag => tag.toLowerCase().includes(searchTerm)) ||
-                    titlePinyin.includes(searchTerm) ||
-                    descriptionPinyin.includes(searchTerm) ||
-                    tagsPinyin.some(tag => tag.includes(searchTerm))) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-
         // 网站访问统计
         const visitCount = localStorage.getItem('visitCount') || 0;
         localStorage.setItem('visitCount', parseInt(visitCount) + 1);
+        
+        // 显示访问次数
+        document.getElementById('visitCount').textContent = `访问次数：${parseInt(visitCount) + 1}`;
         
         // 添加网站访问时间
         const visitTime = new Date().toLocaleString();
@@ -267,4 +226,162 @@
         localStorage.setItem('visitHistory', JSON.stringify(visitHistory));
     </script>
 </body>
-</html>
+</html>    <style>
+        // ... existing code ...
+
+        /* 加载动画 */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .loading::after {
+            content: '';
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* 搜索优化 */
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            border-radius: 15px;
+            margin-top: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .search-results.visible {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-result-item:hover {
+            background: var(--tag-bg);
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .search-result-description {
+            font-size: 0.9em;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div class="loading"></div>
+
+    // ... existing code ...
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="搜索网站...">
+        <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <script>
+        // 页面加载完成后隐藏加载动画
+        window.addEventListener('load', () => {
+            document.querySelector('.loading').style.display = 'none';
+        });
+
+        // 搜索功能优化
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        const siteCards = document.querySelectorAll('.site-card');
+        let searchTimeout;
+
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            // 清除之前的定时器
+            clearTimeout(searchTimeout);
+            
+            // 设置新的定时器，避免频繁搜索
+            searchTimeout = setTimeout(() => {
+                const results = [];
+                
+                siteCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent;
+                    const description = card.querySelector('p').textContent;
+                    const tags = Array.from(card.querySelectorAll('.site-tag')).map(tag => tag.textContent);
+                    
+                    if (title.toLowerCase().includes(searchTerm) || 
+                        description.toLowerCase().includes(searchTerm) || 
+                        tags.some(tag => tag.toLowerCase().includes(searchTerm))) {
+                        results.push({
+                            title,
+                            description,
+                            url: card.href
+                        });
+                    }
+                });
+
+                // 显示搜索结果
+                if (results.length > 0 && searchTerm) {
+                    searchResults.innerHTML = results.map(result => `
+                        <div class="search-result-item" data-url="${result.url}">
+                            <div class="search-result-title">${result.title}</div>
+                            <div class="search-result-description">${result.description}</div>
+                        </div>
+                    `).join('');
+                    searchResults.classList.add('visible');
+                } else {
+                    searchResults.classList.remove('visible');
+                }
+            }, 300);
+        });
+
+        // 点击搜索结果跳转
+        searchResults.addEventListener('click', (e) => {
+            const resultItem = e.target.closest('.search-result-item');
+            if (resultItem) {
+                const url = resultItem.dataset.url;
+                window.open(url, '_blank');
+                searchInput.value = '';
+                searchResults.classList.remove('visible');
+            }
+        });
+
+        // 点击其他地方关闭搜索结果
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.remove('visible');
+            }
+        });
+
+        // ... existing code ...
