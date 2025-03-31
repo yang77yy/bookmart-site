@@ -1,17 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lighthouse Hair - 发现优质网站，探索互联网世界。提供搜索引擎、社交媒体、视频平台、音乐平台等分类导航。">
-    <meta name="keywords" content="网站导航,搜索引擎,社交媒体,视频平台,音乐平台,实用工具,设计资源,AI工具,教育资源">
-    <meta name="author" content="Lighthouse Hair">
-    <meta name="robots" content="index, follow">
-    <title>Lighthouse Hair - 网站导航</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        // ... existing styles ...
-    </style>
+    // ... existing head content ...
 </head>
 <body>
     <!-- 加载动画 -->
@@ -20,160 +10,434 @@
     <!-- 主题切换按钮 -->
     <button class="theme-toggle" id="themeToggle">🌓</button>
 
-    // ... existing header and content ...
+    <div class="header">
+        <div class="container">
+            <h1>Lighthouse Hair</h1>
+            <p>发现优质网站，探索互联网世界 | 精选导航，让上网更简单</p>
+            <div class="quick-links">
+                <a href="#search" class="quick-link"><span>🔍</span>搜索引擎</a>
+                <a href="#social" class="quick-link"><span>👥</span>社交媒体</a>
+                <a href="#video" class="quick-link"><span>🎥</span>视频平台</a>
+                <a href="#music" class="quick-link"><span>🎵</span>音乐平台</a>
+                <a href="#tools" class="quick-link"><span>🛠️</span>实用工具</a>
+                <a href="#design" class="quick-link"><span>🎨</span>设计资源</a>
+                <a href="#ai" class="quick-link"><span>🤖</span>AI工具</a>
+                <a href="#education" class="quick-link"><span>📚</span>教育资源</a>
+                <a href="#news" class="quick-link"><span>📰</span>新闻资讯</a>
+                <a href="#shopping" class="quick-link"><span>🛍️</span>购物平台</a>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索网站...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+        </div>
+    </div>
 
-    <script>
-        // 页面加载完成后隐藏加载动画
-        window.addEventListener('load', () => {
-            document.querySelector('.loading').style.display = 'none';
-        });
+    <div class="container">
+        <!-- 搜索引擎 -->
+        <section id="search" class="category">
+            <h2>搜索引擎 <span class="category-count">4</span></h2>
+            <div class="sites-grid">
+                <a href="https://www.google.com" class="site-card" target="_blank">
+                    <h3>Google</h3>
+                    <p>全球最大的搜索引擎，提供网页、图片、视频等多种搜索服务。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">搜索</span>
+                        <span class="site-tag">全球</span>
+                    </div>
+                </a>
+                <a href="https://www.bing.com" class="site-card" target="_blank">
+                    <h3>Bing</h3>
+                    <p>微软旗下的搜索引擎，提供智能搜索和图片识别服务。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">搜索</span>
+                        <span class="site-tag">微软</span>
+                    </div>
+                </a>
+                <a href="https://www.baidu.com" class="site-card" target="_blank">
+                    <h3>百度</h3>
+                    <p>中国最大的搜索引擎，提供本地化搜索服务。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">搜索</span>
+                        <span class="site-tag">中文</span>
+                    </div>
+                </a>
+                <a href="https://www.duckduckgo.com" class="site-card" target="_blank">
+                    <h3>DuckDuckGo</h3>
+                    <p>注重隐私保护的搜索引擎，不追踪用户行为。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">搜索</span>
+                        <span class="site-tag">隐私</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-        // 主题切换
-        const themeToggle = document.getElementById('themeToggle');
-        const html = document.documentElement;
-        
-        // 检查本地存储中的主题设置
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            html.setAttribute('data-theme', savedTheme);
-            themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌓';
-        }
+        <!-- 社交媒体 -->
+        <section id="social" class="category">
+            <h2>社交媒体 <span class="category-count">6</span></h2>
+            <div class="sites-grid">
+                <a href="https://www.facebook.com" class="site-card" target="_blank">
+                    <h3>Facebook</h3>
+                    <p>全球最大的社交网络平台，连接人与人。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">社交</span>
+                        <span class="site-tag">全球</span>
+                    </div>
+                </a>
+                <a href="https://twitter.com" class="site-card" target="_blank">
+                    <h3>Twitter</h3>
+                    <p>实时信息分享平台，了解最新动态。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">社交</span>
+                        <span class="site-tag">新闻</span>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com" class="site-card" target="_blank">
+                    <h3>Instagram</h3>
+                    <p>图片和视频分享平台，展示生活点滴。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">社交</span>
+                        <span class="site-tag">图片</span>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com" class="site-card" target="_blank">
+                    <h3>LinkedIn</h3>
+                    <p>职业社交平台，建立专业人脉。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">社交</span>
+                        <span class="site-tag">职场</span>
+                    </div>
+                </a>
+                <a href="https://www.weibo.com" class="site-card" target="_blank">
+                    <h3>微博</h3>
+                    <p>中国最大的社交媒体平台，分享生活与观点。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">社交</span>
+                        <span class="site-tag">中文</span>
+                    </div>
+                </a>
+                <a href="https://www.zhihu.com" class="site-card" target="_blank">
+                    <h3>知乎</h3>
+                    <p>问答社区，分享知识与经验。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">社交</span>
+                        <span class="site-tag">问答</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌓';
-        });
+        <!-- 视频平台 -->
+        <section id="video" class="category">
+            <h2>视频平台 <span class="category-count">3</span></h2>
+            <div class="sites-grid">
+                <a href="https://www.youtube.com" class="site-card" target="_blank">
+                    <h3>YouTube</h3>
+                    <p>全球最大的视频分享平台，观看各类视频内容。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">视频</span>
+                        <span class="site-tag">全球</span>
+                    </div>
+                </a>
+                <a href="https://www.bilibili.com" class="site-card" target="_blank">
+                    <h3>哔哩哔哩</h3>
+                    <p>中国知名的视频弹幕网站，二次元文化社区。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">视频</span>
+                        <span class="site-tag">二次元</span>
+                    </div>
+                </a>
+                <a href="https://www.netflix.com" class="site-card" target="_blank">
+                    <h3>Netflix</h3>
+                    <p>全球领先的流媒体平台，观看优质影视内容。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">视频</span>
+                        <span class="site-tag">影视</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-        // 返回顶部按钮
-        const backToTop = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
+        <!-- 音乐平台 -->
+        <section id="music" class="category">
+            <h2>音乐平台 <span class="category-count">3</span></h2>
+            <div class="sites-grid">
+                <a href="https://open.spotify.com" class="site-card" target="_blank">
+                    <h3>Spotify</h3>
+                    <p>全球最大的音乐流媒体平台，聆听全球音乐。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">音乐</span>
+                        <span class="site-tag">全球</span>
+                    </div>
+                </a>
+                <a href="https://music.163.com" class="site-card" target="_blank">
+                    <h3>网易云音乐</h3>
+                    <p>中国知名的音乐平台，发现好音乐。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">音乐</span>
+                        <span class="site-tag">中文</span>
+                    </div>
+                </a>
+                <a href="https://www.apple.com/music" class="site-card" target="_blank">
+                    <h3>Apple Music</h3>
+                    <p>苹果官方音乐服务，高品质音乐体验。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">音乐</span>
+                        <span class="site-tag">苹果</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+        <!-- 实用工具 -->
+        <section id="tools" class="category">
+            <h2>实用工具 <span class="category-count">4</span></h2>
+            <div class="sites-grid">
+                <a href="https://www.notion.so" class="site-card" target="_blank">
+                    <h3>Notion</h3>
+                    <p>全能笔记工具，整合文档、任务、数据库等功能。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">笔记</span>
+                        <span class="site-tag">协作</span>
+                    </div>
+                </a>
+                <a href="https://www.figma.com" class="site-card" target="_blank">
+                    <h3>Figma</h3>
+                    <p>专业的在线设计工具，支持团队协作。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">设计</span>
+                        <span class="site-tag">协作</span>
+                    </div>
+                </a>
+                <a href="https://www.trello.com" class="site-card" target="_blank">
+                    <h3>Trello</h3>
+                    <p>项目管理工具，可视化任务管理。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">管理</span>
+                        <span class="site-tag">协作</span>
+                    </div>
+                </a>
+                <a href="https://www.grammarly.com" class="site-card" target="_blank">
+                    <h3>Grammarly</h3>
+                    <p>智能写作助手，提供语法检查和写作建议。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">写作</span>
+                        <span class="site-tag">工具</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-        // 搜索功能
-        const searchInput = document.getElementById('searchInput');
-        const searchResults = document.getElementById('searchResults');
-        const siteCards = document.querySelectorAll('.site-card');
-        let searchTimeout;
+        <!-- 设计资源 -->
+        <section id="design" class="category">
+            <h2>设计资源 <span class="category-count">4</span></h2>
+            <div class="sites-grid">
+                <a href="https://www.behance.net" class="site-card" target="_blank">
+                    <h3>Behance</h3>
+                    <p>全球最大的创意设计展示平台。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">设计</span>
+                        <span class="site-tag">创意</span>
+                    </div>
+                </a>
+                <a href="https://www.dribbble.com" class="site-card" target="_blank">
+                    <h3>Dribbble</h3>
+                    <p>设计师作品展示平台，发现设计灵感。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">设计</span>
+                        <span class="site-tag">灵感</span>
+                    </div>
+                </a>
+                <a href="https://www.pinterest.com" class="site-card" target="_blank">
+                    <h3>Pinterest</h3>
+                    <p>图片收藏和分享平台，获取创意灵感。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">设计</span>
+                        <span class="site-tag">图片</span>
+                    </div>
+                </a>
+                <a href="https://www.iconfont.cn" class="site-card" target="_blank">
+                    <h3>Iconfont</h3>
+                    <p>阿里巴巴矢量图标库，提供丰富的图标资源。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">设计</span>
+                        <span class="site-tag">图标</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-        searchInput.addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            
-            // 清除之前的定时器
-            clearTimeout(searchTimeout);
-            
-            // 设置新的定时器，避免频繁搜索
-            searchTimeout = setTimeout(() => {
-                const results = [];
-                
-                siteCards.forEach(card => {
-                    const title = card.querySelector('h3').textContent;
-                    const description = card.querySelector('p').textContent;
-                    const tags = Array.from(card.querySelectorAll('.site-tag')).map(tag => tag.textContent);
-                    
-                    if (title.toLowerCase().includes(searchTerm) || 
-                        description.toLowerCase().includes(searchTerm) || 
-                        tags.some(tag => tag.toLowerCase().includes(searchTerm))) {
-                        results.push({
-                            title,
-                            description,
-                            url: card.href
-                        });
-                    }
-                });
+        <!-- AI工具 -->
+        <section id="ai" class="category">
+            <h2>AI工具 <span class="category-count">4</span></h2>
+            <div class="sites-grid">
+                <a href="https://chat.openai.com" class="site-card" target="_blank">
+                    <h3>ChatGPT</h3>
+                    <p>OpenAI开发的AI对话模型，智能问答助手。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">AI</span>
+                        <span class="site-tag">对话</span>
+                    </div>
+                </a>
+                <a href="https://www.midjourney.com" class="site-card" target="_blank">
+                    <h3>Midjourney</h3>
+                    <p>AI图像生成工具，创建独特艺术作品。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">AI</span>
+                        <span class="site-tag">图像</span>
+                    </div>
+                </a>
+                <a href="https://www.copy.ai" class="site-card" target="_blank">
+                    <h3>Copy.ai</h3>
+                    <p>AI写作助手，生成营销文案和内容。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">AI</span>
+                        <span class="site-tag">写作</span>
+                    </div>
+                </a>
+                <a href="https://www.descript.com" class="site-card" target="_blank">
+                    <h3>Descript</h3>
+                    <p>AI视频编辑工具，智能处理音视频内容。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">AI</span>
+                        <span class="site-tag">视频</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-                // 显示搜索结果
-                if (results.length > 0 && searchTerm) {
-                    searchResults.innerHTML = results.map(result => `
-                        <div class="search-result-item" data-url="${result.url}">
-                            <div class="search-result-title">${result.title}</div>
-                            <div class="search-result-description">${result.description}</div>
-                        </div>
-                    `).join('');
-                    searchResults.classList.add('visible');
-                } else {
-                    searchResults.classList.remove('visible');
-                }
-            }, 300);
-        });
+        <!-- 教育资源 -->
+        <section id="education" class="category">
+            <h2>教育资源 <span class="category-count">4</span></h2>
+            <div class="sites-grid">
+                <a href="https://www.coursera.org" class="site-card" target="_blank">
+                    <h3>Coursera</h3>
+                    <p>全球知名在线教育平台，提供优质课程。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">教育</span>
+                        <span class="site-tag">课程</span>
+                    </div>
+                </a>
+                <a href="https://www.udemy.com" class="site-card" target="_blank">
+                    <h3>Udemy</h3>
+                    <p>实用技能学习平台，丰富的课程资源。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">教育</span>
+                        <span class="site-tag">技能</span>
+                    </div>
+                </a>
+                <a href="https://www.duolingo.com" class="site-card" target="_blank">
+                    <h3>Duolingo</h3>
+                    <p>趣味语言学习平台，游戏化学习体验。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">教育</span>
+                        <span class="site-tag">语言</span>
+                    </div>
+                </a>
+                <a href="https://www.khanacademy.org" class="site-card" target="_blank">
+                    <h3>Khan Academy</h3>
+                    <p>免费教育资源平台，覆盖多个学科领域。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">教育</span>
+                        <span class="site-tag">免费</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-        // 点击搜索结果跳转
-        searchResults.addEventListener('click', (e) => {
-            const resultItem = e.target.closest('.search-result-item');
-            if (resultItem) {
-                const url = resultItem.dataset.url;
-                window.open(url, '_blank');
-                searchInput.value = '';
-                searchResults.classList.remove('visible');
-            }
-        });
+        <!-- 新闻资讯 -->
+        <section id="news" class="category">
+            <h2>新闻资讯 <span class="category-count">4</span></h2>
+            <div class="sites-grid">
+                <a href="https://www.reuters.com" class="site-card" target="_blank">
+                    <h3>Reuters</h3>
+                    <p>路透社官方网站，全球新闻资讯。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">新闻</span>
+                        <span class="site-tag">全球</span>
+                    </div>
+                </a>
+                <a href="https://www.bbc.com" class="site-card" target="_blank">
+                    <h3>BBC News</h3>
+                    <p>英国广播公司新闻网站，权威新闻报道。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">新闻</span>
+                        <span class="site-tag">国际</span>
+                    </div>
+                </a>
+                <a href="https://www.theguardian.com" class="site-card" target="_blank">
+                    <h3>The Guardian</h3>
+                    <p>英国卫报官方网站，深度新闻报道。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">新闻</span>
+                        <span class="site-tag">深度</span>
+                    </div>
+                </a>
+                <a href="https://www.nytimes.com" class="site-card" target="_blank">
+                    <h3>The New York Times</h3>
+                    <p>纽约时报官方网站，全球新闻资讯。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">新闻</span>
+                        <span class="site-tag">美国</span>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-        // 点击其他地方关闭搜索结果
-        document.addEventListener('click', (e) => {
-            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-                searchResults.classList.remove('visible');
-            }
-        });
+        <!-- 购物平台 -->
+        <section id="shopping" class="category">
+            <h2>购物平台 <span class="category-count">4</span></h2>
+            <div class="sites-grid">
+                <a href="https://www.amazon.com" class="site-card" target="_blank">
+                    <h3>Amazon</h3>
+                    <p>全球最大的电商平台，商品种类丰富。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">购物</span>
+                        <span class="site-tag">全球</span>
+                    </div>
+                </a>
+                <a href="https://www.taobao.com" class="site-card" target="_blank">
+                    <h3>淘宝</h3>
+                    <p>中国最大的电商平台，海量商品选择。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">购物</span>
+                        <span class="site-tag">中文</span>
+                    </div>
+                </a>
+                <a href="https://www.jd.com" class="site-card" target="_blank">
+                    <h3>京东</h3>
+                    <p>中国知名电商平台，正品保障。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">购物</span>
+                        <span class="site-tag">正品</span>
+                    </div>
+                </a>
+                <a href="https://www.etsy.com" class="site-card" target="_blank">
+                    <h3>Etsy</h3>
+                    <p>全球手工艺品交易平台，独特商品。</p>
+                    <div class="site-tags">
+                        <span class="site-tag">购物</span>
+                        <span class="site-tag">手工艺</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
 
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Lighthouse Hair. All rights reserved.</p>
+            <p>联系我们：<a href="mailto:contact@lighthouse.hair">contact@lighthouse.hair</a></p>
+        </div>
+    </footer>
 
-        // 收藏功能
-        const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-        
-        siteCards.forEach(card => {
-            const url = card.href;
-            const favoriteBtn = document.createElement('button');
-            favoriteBtn.className = `favorite-btn ${favorites.includes(url) ? 'active' : ''}`;
-            favoriteBtn.innerHTML = '⭐';
-            favoriteBtn.title = '收藏网站';
-            card.appendChild(favoriteBtn);
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top" id="backToTop">↑</div>
 
-            favoriteBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const index = favorites.indexOf(url);
-                if (index === -1) {
-                    favorites.push(url);
-                } else {
-                    favorites.splice(index, 1);
-                }
-                
-                localStorage.setItem('favorites', JSON.stringify(favorites));
-                favoriteBtn.classList.toggle('active');
-            });
-        });
+    <!-- 访问统计 -->
+    <div class="visit-count" id="visitCount"></div>
 
-        // 网站访问统计
-        const visitCount = localStorage.getItem('visitCount') || 0;
-        localStorage.setItem('visitCount', parseInt(visitCount) + 1);
-        
-        // 显示访问次数
-        document.getElementById('visitCount').textContent = `访问次数：${parseInt(visitCount) + 1}`;
-    </script>
+    // ... existing scripts ...
 </body>
 </html>
